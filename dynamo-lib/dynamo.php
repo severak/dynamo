@@ -74,15 +74,22 @@ class dynamo
 		}
 	}
 
-	function run($cd)
+	function run($argv, $cd)
 	{
-		$args = new Dlin\Getopt\Getopt(array(
-			array('arg'=>'act', 'alias'=>'a', 'default'=>'help', 'help'=>'action'),
-			array('arg'=>'srcdir', 'default'=>$cd . '/src', 'help'=>'src dir'),
-			array('arg'=>'outdir', 'default'=>$cd . '/out', 'help'=>'out dir'),
-			array('arg'=>'tpldir', 'default'=>$cd . '/tpl', 'help'=>'tpl dir')
-		));
-		$args->parse();
+		echo $cd . PHP_EOL;
+		$cli = new \Garden\Cli\Cli();
+		$cli->format = false;
+		$cli->command('build')
+			->description('Build all pages.')
+			->opt('srcdir','Path to source dir.', false)
+			->opt('outdir','Path to output dir.', false)
+			->opt('tpldir','Path to template dir.', false);
+		
+		// TODO
+		
+		
+		$args = $cli->parse($argv);
+		var_dump($args);
 		$this->_srcdir = $args->srcdir;
 		$this->_outdir = $args->outdir;
 		$this->_tpldir = $args->tpldir;

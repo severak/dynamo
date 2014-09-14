@@ -29,7 +29,7 @@ class Cli {
     /**
      * @var bool Whether or not to format output with console codes.
      */
-    public $format = true;
+    public $format = false;
 
     protected static $types = [
 //        '=' => 'base64',
@@ -262,7 +262,7 @@ class Cli {
      */
     public function parse($argv = null, $exit = true) {
         // Only format commands if we are exiting.
-        $this->format = $exit;
+        //$this->format = $exit;
         if (!$exit) {
             ob_start();
         }

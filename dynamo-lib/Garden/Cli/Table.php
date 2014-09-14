@@ -15,7 +15,7 @@ class Table {
     /**
      * @var bool Whether or not to format the console commands.
      */
-    public $format = true;
+    public $format = false;
 
     /**
      * @var array An array of the row data.

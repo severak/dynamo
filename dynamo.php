@@ -8,4 +8,4 @@ $by->throwTheseErrors = E_ALL ^ (E_WARNING | E_NOTICE); // nojo, php
 
 $app = new dynamo();
 $app->framework = $by;
-$app->run(getcwd());
+$app->run($argv, getcwd());
